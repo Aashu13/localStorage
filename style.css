@@ -1,0 +1,59 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #004040;
+  border-box: border-size;
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: normal;
+  font-family: ariel;
+}
+
+.wrapper {
+  max-width: 500px;
+  margin: 100px auto;
+  border: 2px solid #ddd;
+  background: #fff;
+}
+
+.content {
+  width: 90%;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+input[type="text"],
+button {
+  width: 50%;
+  padding: 14px;
+  font-size: 20px;
+  border: 1px solid none;
+}
+
+button {
+  width: 25% !important;
+  border: 1px solid #ddd;
+}
+
+.list_item {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  vertical-align: middle;
+}
+
+ul li {
+  font-size: 35px;
+  text-align: left;
+  margin: 10px;
+  color: #ddd;
+  cursor: pointer;
+}
+
+ul li input {
+  width: 20px;
+  height: 20px;
+}
