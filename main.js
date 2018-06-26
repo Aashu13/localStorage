@@ -1,41 +1,51 @@
-var todoForm = document.querySelector('#myForm');
-var textValue = document.querySelector('#textInput');
-var itemsList = document.querySelector('.list_item');
-var items = JSON.parse(localStorage.getItem('items')) || [];
+var todoForm = document.querySelector('.todoform');
+var listMenu = document.querySelector('#list_items');
+var showDivButton = document.getElementById('showList');
+var listObjectData = JSON.parse(localStorage.getItem('item')) || [];
 
-
-function addItem(e) {
+function addItemList(e) {
     e.preventDefault();
-    var text = (this.querySelector('[name=item]')).value;
-    var item = {
-        text,
+    var addItemInput = document.querySelector('#addItem').value;
+    var listItem = {
+        listName: addItemInput,
         done: false
     };
-    items.push(item);
-    populateList(items, itemsList);
-    localStorage.setItem('items', JSON.stringify(items));
+    listObjectData.push(listItem);
+    localStorage.setItem('item', JSON.stringify(listObjectData));
+    renderListName(listObjectData);
     this.reset();
 }
 
-function populateList(plates = [], platesList) {
-    platesList.innerHTML = plates.map((plate, i) => {
-        return `
-      <li>
-        <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
-        <label for="item${i}">${plate.text}</label>
-      </li>
-    `;
-    }).join('');
+function renderListName(listObjectsData) {
+    listMenu.innerHTML = "";
+    for (var i = 0; i < listObjectData.length; i++) {
+        var li = document.createElement('li');
+        var label = document.createElement('label');
+        label.textContent = listObjectData[i].listName;
+
+        var checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = listObjectsData[i].done;
+        checkbox.setAttribute('data-index', i);
+
+
+        li.appendChild(checkbox);
+        li.appendChild(label);
+        listMenu.appendChild(li);
+        console.log(listMenu);
+    }
 }
 
-function toggleDone(e) {
+function toggleHandle(e) {
     if (!e.target.matches('input')) return; // skip this unless it's an input
-    const el = e.target;
-    const index = el.dataset.index;
-    items[index].done = !items[index].done;
-    localStorage.setItem('items', JSON.stringify(items));
-    populateList(items, itemsList);
+    var el = e.target;
+    var index = el.dataset.index;
+    listObjectData[index].done = !listObjectData[index].done;
+    localStorage.setItem('item', JSON.stringify(listObjectData));
+    renderListName(listObjectData);
 }
-todoForm.addEventListener('submit', addItem);
-itemsList.addEventListener('click', toggleDone);
-populateList(items, itemsList);
+
+
+todoForm.addEventListener("submit", addItemList);
+renderListName(listObjectData);
+listMenu.addEventListener("change", toggleHandle)

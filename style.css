@@ -2,58 +2,84 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: #004040;
-  border-box: border-size;
+  font-family: "Dancing Script", cursive;
+  background: #423748;
+  border-size: border-box;
 }
 
-h1 {
-  font-size: 50px;
-  font-weight: normal;
-  font-family: ariel;
+h1,
+h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-top: 0;
 }
 
 .wrapper {
-  max-width: 500px;
+  width: 380px;
+  height: auto;
+  background: #f1f1f1;
   margin: 100px auto;
-  border: 2px solid #ddd;
-  background: #fff;
+  padding: 20px;
 }
 
 .content {
-  width: 90%;
-  margin: 0 auto;
-  padding-bottom: 40px;
-}
-
-input[type="text"],
-button {
-  width: 50%;
-  padding: 14px;
-  font-size: 20px;
-  border: 1px solid none;
-}
-
-button {
-  width: 25% !important;
-  border: 1px solid #ddd;
-}
-
-.list_item {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  vertical-align: middle;
-}
-
-ul li {
-  font-size: 35px;
+  width: 100%;
   text-align: left;
-  margin: 10px;
-  color: #ddd;
+}
+
+input,
+button {
+  width: 40%;
+  padding: 20px;
+  font-size: 15px;
+  border: 1.5px solid #ddd;
+  outline: none;
+}
+
+button {
+  width: 30%;
+  position: relative;
+  left: -7px;
+  color: #358497;
   cursor: pointer;
 }
 
-ul li input {
-  width: 20px;
-  height: 20px;
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: middle;
+}
+ul li {
+  font-size: 25px;
+  margin: 10px;
+  position: relative;
+  font-family: "Slabo 27px", serif;
+  border-bottom: 2px solid #ddd;
+}
+
+ul li label {
+  position: relative;
+  left: 20px;
+  bottom: 6px;
+}
+
+input[type="checkbox"] {
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+}
+
+.button_div {
+  width: 300px;
+  margin: 400px auto;
+  display: flex;
+  align-items: center;
+  justify-content: middle;
+}
+
+#showList {
+  width: 400px !important;
+  padding: 20px;
+  font-size: 30px;
 }
